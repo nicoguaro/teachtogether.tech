@@ -1,3 +1,6 @@
+% Conditionals.
+\usepackage{xifthen}
+
 % Allow multi-page tables.
 \usepackage{longtable}
 
@@ -25,27 +28,30 @@
 \DeclareFieldFormat{extraalpha}{}
 
 % Image figures.
-\newcommand{\figimg}[3]{\begin{figure}%
+\newcommand{\figimg}[4]{\begin{figure}%
 \centering%
 \includegraphics[width=\textwidth]{#1}%
 \caption{#2}%
 \label{#3}%
+\ifthenelse{\isempty{#4}}{}{\Description{#4}}%
 \end{figure}}
 
 % PDF figures.
-\newcommand{\figpdf}[3]{\begin{figure}%
+\newcommand{\figpdf}[4]{\begin{figure}%
 \centering%
 \includegraphics[scale=0.6]{#1}%
 \caption{#2}%
 \label{#3}%
+\ifthenelse{\isempty{#4}}{}{\Description{#4}}%
 \end{figure}}
 
 % PDF figures forcing location.
-\newcommand{\figpdfhere}[3]{\begin{figure}[H]%
+\newcommand{\figpdfhere}[4]{\begin{figure}[H]%
 \centering%
 \includegraphics[scale=0.6]{#1}%
 \caption{#2}%
 \label{#3}%
+\ifthenelse{\isempty{#4}}{}{\Description{#4}}%
 \end{figure}}
 
 % Exercise headings.
